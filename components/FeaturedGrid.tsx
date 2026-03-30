@@ -98,14 +98,13 @@ export default function FeaturedGrid() {
         </div>
       </div>
 
-      <motion.div layout className="grid gap-6 lg:grid-cols-3 auto-rows-[260px]">
+      <div className="grid gap-6 lg:grid-cols-3 auto-rows-[260px]">
         <AnimatePresence mode="popLayout">
           {filtered.map((item, idx) => {
             const isLarge = idx % 5 === 0
             const isWide = idx % 5 === 3
             return (
               <motion.div
-                layout
                 key={item.id}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -145,7 +144,7 @@ export default function FeaturedGrid() {
             )
           })}
         </AnimatePresence>
-      </motion.div>
+      </div>
     </section>
   )
 }
