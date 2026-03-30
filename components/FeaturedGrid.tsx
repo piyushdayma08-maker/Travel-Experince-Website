@@ -104,17 +104,16 @@ export default function FeaturedGrid() {
             const isLarge = idx % 5 === 0
             const isWide = idx % 5 === 3
             return (
-              <motion.div
+              <div
                 key={item.id}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
                 className={`${isLarge ? 'lg:col-span-2 lg:row-span-2' : ''} ${isWide ? 'lg:col-span-2' : ''}`}
               >
                 <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4 }}
                   whileHover={{ y: -6, scale: 1.01 }}
-                  transition={{ duration: 0.3 }}
                   className="group relative h-full rounded-[28px] overflow-hidden shadow-soft"
                 >
                   <article className="h-full">
@@ -140,7 +139,7 @@ export default function FeaturedGrid() {
                     </div>
                   </article>
                 </motion.div>
-              </motion.div>
+              </div>
             )
           })}
         </AnimatePresence>
