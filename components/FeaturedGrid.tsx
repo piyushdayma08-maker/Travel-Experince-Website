@@ -1,7 +1,6 @@
 ﻿"use client"
 import { useMemo, useState } from 'react'
 import Image from 'next/image'
-import { AnimatePresence, motion } from 'framer-motion'
 import { destinations } from '../lib/data/india'
 
 const seasonOptions = ['All', 'Winter', 'Summer', 'Monsoon']
@@ -99,50 +98,41 @@ export default function FeaturedGrid() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3 auto-rows-[260px]">
-        <AnimatePresence mode="popLayout">
-          {filtered.map((item, idx) => {
-            const isLarge = idx % 5 === 0
-            const isWide = idx % 5 === 3
-            return (
-              <div
-                key={item.id}
-                className={`${isLarge ? 'lg:col-span-2 lg:row-span-2' : ''} ${isWide ? 'lg:col-span-2' : ''}`}
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.4 }}
-                  whileHover={{ y: -6, scale: 1.01 }}
-                  className="group relative h-full rounded-[28px] overflow-hidden shadow-soft"
-                >
-                  <article className="h-full">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-2xl font-semibold">{item.name}</h3>
-                        <span className="text-xs uppercase tracking-[0.3em] text-white/70">{item.state}</span>
-                      </div>
-                      <div className="mt-3 grid gap-2 text-sm text-white/80">
-                        <p>Best season: {item.bestSeason}</p>
-                        <p>Type: {item.type}</p>
-                        <p>Famous food: {item.famousFood}</p>
-                        <p className="text-white/70">{item.description}</p>
-                      </div>
+        {filtered.map((item, idx) => {
+          const isLarge = idx % 5 === 0
+          const isWide = idx % 5 === 3
+          return (
+            <div
+              key={item.id}
+              className={`${isLarge ? 'lg:col-span-2 lg:row-span-2' : ''} ${isWide ? 'lg:col-span-2' : ''}`}
+            >
+              <div className="group relative h-full rounded-[28px] overflow-hidden shadow-soft transition-transform duration-300 hover:-translate-y-1">
+                <article className="h-full">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-2xl font-semibold">{item.name}</h3>
+                      <span className="text-xs uppercase tracking-[0.3em] text-white/70">{item.state}</span>
                     </div>
-                  </article>
-                </motion.div>
+                    <div className="mt-3 grid gap-2 text-sm text-white/80">
+                      <p>Best season: {item.bestSeason}</p>
+                      <p>Type: {item.type}</p>
+                      <p>Famous food: {item.famousFood}</p>
+                      <p className="text-white/70">{item.description}</p>
+                    </div>
+                  </div>
+                </article>
               </div>
-            )
-          })}
-        </AnimatePresence>
+            </div>
+          )
+        })}
       </div>
     </section>
   )
