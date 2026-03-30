@@ -1,0 +1,28 @@
+{
+  "name": "travel-experience-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "framer-motion": "^10.12.5",
+    "gsap": "^3.12.2",
+    "lenis": "^1.0.20",
+    "lucide-react": "^0.259.0",
+    "next": "^14.2.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "^3.4.8",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "25.5.0",
+    "@types/react": "19.2.14",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24"
+  }
+}
