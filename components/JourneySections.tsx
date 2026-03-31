@@ -24,7 +24,7 @@ export default function JourneySections() {
       } catch (e) {}
 
       ctx = gsap.context(() => {
-        const items = gsap.utils.toArray<HTMLElement>('.journey-item')
+        const items = (gsap.utils.toArray('.journey-item') as HTMLElement[])
         items.forEach((item) => {
           gsap.fromTo(
             item,
@@ -120,3 +120,4 @@ export default function JourneySections() {
     </section>
   )
 }
+

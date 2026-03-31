@@ -1,22 +1,11 @@
 ﻿"use client"
+
 import { useMemo, useState } from 'react'
 import Image from 'next/image'
-import { destinations } from '../lib/data/india'
+import { destinations, Destination } from '../lib/data/india'
 
 const seasonOptions = ['All', 'Winter', 'Summer', 'Monsoon']
-
-const typeOptions = [
-  'All',
-  'Mountains',
-  'Beach',
-  'Culture',
-  'Heritage',
-  'Spiritual',
-  'Nature',
-  'Wildlife',
-  'Desert',
-  'City'
-]
+const typeOptions = ['All','Mountains','Beach','Culture','Heritage','Spiritual','Nature','Wildlife','Desert','City']
 
 export default function FeaturedGrid() {
   const [season, setSeason] = useState('All')
@@ -98,7 +87,7 @@ export default function FeaturedGrid() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3 auto-rows-[260px]">
-        {filtered.map((item, idx) => {
+        {filtered.map((item: Destination, idx: number) => {
           const isLarge = idx % 5 === 0
           const isWide = idx % 5 === 3
           return (
